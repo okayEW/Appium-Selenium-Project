@@ -19,55 +19,65 @@ public class BasePage {
     protected static Logger logger = LoggerFactory.getLogger(BasePage.class);
     protected AndroidDriver androidDriver;
 
-    public BasePage(AndroidDriver androidDriver){
+    public BasePage(AndroidDriver androidDriver) {
         this.androidDriver = androidDriver;
         PageFactory.initElements(androidDriver, this);
     }
-    public void waitElementIsVisible(WebElement element){
+
+    public void waitElementIsVisible(WebElement element) {
         new WebDriverWait(androidDriver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(element));
-        logger.debug(element  + "\tВиден");
+        logger.debug(element + "\tВиден");
     }
-    public void waitElementToBeClickable(WebElement element){
+
+    public void waitElementToBeClickable(WebElement element) {
         new WebDriverWait(androidDriver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.elementToBeClickable(element));
-        logger.debug(element  + "\tКликабелен");
+        logger.debug(element + "\tКликабелен");
     }
-    public WebElement clickOnClickableElement(WebElement element){
+
+    public WebElement clickOnClickableElement(WebElement element) {
         waitElementToBeClickable(element);
         element.click();
         logger.debug("Происходит нажатие по элементу:\t" + element);
         return element;
     }
-    public WebElement clickOnVisibleElement(WebElement element){
+
+    public WebElement clickOnVisibleElement(WebElement element) {
         waitElementIsVisible(element);
         element.click();
         logger.debug("Происходит нажатие по элементу:\t" + element);
         return element;
     }
-    public void sendKeys(WebElement element, String text){
+
+    public void sendKeys(WebElement element, String text) {
         waitElementIsVisible(element);
         element.sendKeys(text);
         logger.debug("Происходит отправка текста:\t" + text, "В элемент:\t" + element);
     }
-    public void pressEnter(){
+
+    public void pressEnter() {
         androidDriver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
-    public void clear(WebElement element){
+
+    public void clear(WebElement element) {
         waitElementIsVisible(element);
         element.clear();
         logger.debug("Происходит очистка элемента:\t" + element);
     }
+
     public String getAttribute(WebElement element, String attribute) {
         waitElementIsVisible(element);
         logger.debug("Получение аттрибута у элемента:\t" + element);
         return element.getAttribute(attribute);
     }
-    public String getText(WebElement element){
-        String txt =  null;
+
+    public String getText(WebElement element) {
+        String txt = null;
         txt = getAttribute(element, "text");
         logger.debug("Получен текст:\t" + txt);
         return txt;
     }
-    public void hideKeyboard(){
+
+    public void hideKeyboard() {
         androidDriver.hideKeyboard();
     }
 }

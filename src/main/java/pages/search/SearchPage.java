@@ -12,7 +12,8 @@ public class SearchPage extends BasePage {
         super(androidDriver);
         PageFactory.initElements(androidDriver, this);
     }
-    @FindBy (id = "ru.beru.android:id/filters")
+
+    @FindBy(id = "ru.beru.android:id/filters")
     private WebElement filtersButton;
     @FindBy(id = "ru.beru.android:id/viewSearchAppBarLayoutInput")
     private WebElement searchBar;
@@ -20,24 +21,28 @@ public class SearchPage extends BasePage {
     private WebElement searchButton;
     @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.appcompat.widget.LinearLayoutCompat/androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView")
     private WebElement priceFilter;
-    public SearchPage openFiltersPage(){
+
+    public SearchPage openFiltersPage() {
         clickOnClickableElement(filtersButton);
         logger.info("Происходит нажатие на иконку фильтров");
         return this;
     }
-    public SearchPage clickOnSearchButton(){
+
+    public SearchPage clickOnSearchButton() {
         clickOnClickableElement(searchButton);
         logger.info("Происходит нажатие на иконку поиска");
         return this;
     }
-    public SearchPage searchByText(String text){
+
+    public SearchPage searchByText(String text) {
         sendKeys(searchBar, text);
         hideKeyboard();
         clickOnSearchButton();
         logger.info("Происходит поиск по тексту");
         return this;
     }
-    public String getPriceText(){
+
+    public String getPriceText() {
         String actualPriceText = getText(priceFilter);
         logger.info("Происходит получение текущего атрибута суммы");
         return actualPriceText;

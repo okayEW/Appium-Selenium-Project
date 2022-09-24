@@ -11,16 +11,16 @@
 
     <appender name="FILE"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>loggerInfo.log</file>
+        <file>logs/logback.log</file>
         <rollingPolicy
                 class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- daily rollover -->
-            <fileNamePattern>loggerInfo.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>logback.%d{yyyy-MM-dd}.log</fileNamePattern>
 
             <!-- Храним файлы логов 10 дней -->
             <maxHistory>10</maxHistory>
 
-            <!-- Максимальный размер файлов лога 30 гигабайт -->
+            <!-- Максимальный размер файлов лога 10 гигабайт -->
             <totalSizeCap>10GB</totalSizeCap>
 
         </rollingPolicy>

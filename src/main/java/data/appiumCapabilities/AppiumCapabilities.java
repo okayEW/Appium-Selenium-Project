@@ -6,8 +6,6 @@ public class AppiumCapabilities {
     public static final String UI_AUTOMATOR2 = "UiAutomator2";
     public static final String DEVICE_NAME = "emulator-5554";
     public static final String PLATFORM_VERSION = "12.0";
-    public static final String APP_PACKAGE = "ru.beru.android";
-    public static final String APP_ACTIVITY = "ru.yandex.market.activity.main.MainActivity";
     public static final String APK_FILE_OZON = "src/main/resources/apkFiles/ru.beru.android_4.29.2993.apk";
     public static final Boolean RESET_KEYBOARD = true;
     public static final Boolean UNICODE_KEYBOARD = true;

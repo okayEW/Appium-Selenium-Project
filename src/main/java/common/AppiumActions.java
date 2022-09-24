@@ -18,17 +18,14 @@ import static data.constants.Constants.TimeoutVariables.IMPLICIT_WAIT;
 public class AppiumActions {
     private static final Logger logger = LoggerFactory.getLogger(AppiumActions.class);
 
-    public static AndroidDriver setUpAppium(){
+    public static AndroidDriver setUpAppium() {
 
         AndroidDriver androidDriver = null;
-        //Set the Desired Capabilities
         File app = new File(APK_FILE_OZON);
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, UI_AUTOMATOR2);
         capabilities.setCapability("chromedriverExecutable", CHROME_DRIVER);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-        //capabilities.setCapability("appPackage", APP_PACKAGE);
-        //capabilities.setCapability("appWaitActivity", APP_ACTIVITY);
         capabilities.setCapability("deviceName", DEVICE_NAME);
         capabilities.setCapability("unicodekeyboard", UNICODE_KEYBOARD);
         capabilities.setCapability("resetkeyboard", RESET_KEYBOARD);
@@ -36,7 +33,7 @@ public class AppiumActions {
         capabilities.setCapability("app", app.getAbsolutePath());
 
         try {
-            androidDriver = new AndroidDriver (new URL(APPIUM_NODE), capabilities);
+            androidDriver = new AndroidDriver(new URL(APPIUM_NODE), capabilities);
         } catch (MalformedURLException e) {
             e.printStackTrace();
             logger.error("Не удалось подключиться к Appium node");

@@ -10,26 +10,30 @@ import org.slf4j.LoggerFactory;
 import pages.cityChoosePage.CityChoosePage;
 import pages.filters.FiltersPage;
 import pages.filters.byPrice.FiltersByPricePage;
+import pages.item.ItemPage;
 import pages.main.MainPage;
 import pages.search.SearchPage;
+import utils.AppiumTouchActions;
 
 public abstract class BaseTest {
-    protected TestInfo testInfo;
     protected AndroidDriver androidDriver = AppiumActions.setUpAppium();
     protected MainPage mainPage = new MainPage(androidDriver);
     protected CityChoosePage cityChoosePage = new CityChoosePage(androidDriver);
     protected FiltersPage filtersPage = new FiltersPage(androidDriver);
     protected FiltersByPricePage filtersByPricePage = new FiltersByPricePage(androidDriver);
     protected SearchPage searchPage = new SearchPage(androidDriver);
+    protected AppiumTouchActions appiumTouchActions = new AppiumTouchActions();
+    protected ItemPage itemPage = new ItemPage(androidDriver);
     protected static Logger logger;
 
     @BeforeEach
-    void InitializeLogger(TestInfo testInfo){
+    void InitializeLogger(TestInfo testInfo) {
         logger = LoggerFactory.getLogger(BaseTest.class);
         logger.info(String.format("Test started:\t" + testInfo.getDisplayName()));
     }
+
     @AfterEach
-    void LogTestFinished(TestInfo testInfo){
+    void LogTestFinished(TestInfo testInfo) {
         logger.info(String.format("Test finished:\t") + testInfo.getDisplayName());
     }
 }

@@ -17,12 +17,13 @@ public class FiltersPage extends BasePage {
     @FindBy(id = "ru.beru.android:id/bt_submit")
     private WebElement SubmitButton;
 
-    public FiltersPage openFilterByPrice(){
+    public FiltersPage openFilterByPrice() {
         clickOnClickableElement(filterByPrice);
         logger.info("Происходит нажатие на иконку фильтров");
         return this;
     }
-    public FiltersPage clickOnSubmitButton(){
+
+    public FiltersPage clickOnSubmitButton() {
         clickOnClickableElement(SubmitButton);
         logger.info("Происходит нажатие на кнопку сохранения фильтров");
         return this;
