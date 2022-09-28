@@ -26,8 +26,8 @@ public class SearchGroup extends BaseTest {
                 .clickOnSortCheaperInDropList();
 
         String actualSortName = searchPage.getSortText();
-        String expectedPriceText = "Подешевле";
-        logger.info("Ожидаемое название сортировки:\t" + expectedPriceText);
-        assertEquals(actualSortName, expectedPriceText, "Фактическая цена, не совпадает с ожидаемой");
+        String expectedSortName = "Подешевле";
+        logger.info("Ожидаемое название сортировки:\t" + expectedSortName);
+        assertEquals(actualSortName, expectedSortName, "Фактическая цена, не совпадает с ожидаемой");
     }
 }
