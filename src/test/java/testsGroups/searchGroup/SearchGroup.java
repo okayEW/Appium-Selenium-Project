@@ -10,9 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SearchGroup extends BaseTest {
 
     @Test
-    @DisplayName("Test-case - 1: Sort by price.")
-    @Description("Тест-кейс на поиск товара по названию, фильтрации посковой выдачи по цене и проверку корректной фильтрации по цене")
-    public void sortByPrice() {
+    @DisplayName("Test-case - 1: Sort by price")
+    @Description("Тест-кейс на поиск товара по названию и сортировки посковой выдачи по возрастанию цены ")
+    public void sortByCheaperPrice() {
         cityChoosePage
                 .skipFirstCityChoose();
         mainPage
@@ -21,16 +21,13 @@ public class SearchGroup extends BaseTest {
                 .clickOnSearchBar();
         searchPage
                 .searchByText("Шампунь")
-                .openFiltersPage();
-        filtersPage
-                .openFilterByPrice();
-        filtersByPricePage
-                .changeFilterByPrice("1000", "1500")
-                .clickOnSubmutButton();
+                .clickOnSearchButton()
+                .openSortDropList()
+                .clickOnSortCheaperInDropList();
 
-        String actualPriceText = searchPage.getPriceText();
-        String expectedPriceText = "1000 - 1500 ₽";
-        logger.info("Ожидаемый текст введенной ранее цены:\t" + expectedPriceText);
-        assertEquals(actualPriceText, expectedPriceText, "Фактическая цена, не совпадает с ожидаемой");
+        String actualSortName = searchPage.getSortText();
+        String expectedPriceText = "Подешевле";
+        logger.info("Ожидаемое название сортировки:\t" + expectedPriceText);
+        assertEquals(actualSortName, expectedPriceText, "Фактическая цена, не совпадает с ожидаемой");
     }
 }

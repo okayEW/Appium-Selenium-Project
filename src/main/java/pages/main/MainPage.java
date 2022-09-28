@@ -1,6 +1,7 @@
 package pages.main;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,6 +25,7 @@ public class MainPage extends BasePage {
     private WebElement lastItemInCarousel;
 
     //Скрытие pop-up'a с подтверждением вашего населенного пункта
+    @Step("Нажатие на кнопку согласия в поп-апе с подтверждением вашего населенного пункта")
     public MainPage agreeCityChooseButton() {
         clickOnClickableElement(agreeCityChooseButton);
         logger.info("Происходит нажатие на кнопку согласия в поп-апе с подтверждением вашего населенного пункта");
@@ -31,6 +33,7 @@ public class MainPage extends BasePage {
     }
 
     //Скрытие pop-up'a с куками
+    @Step("Нажатие на кнопку 'skip' в поп-апе с куками")
     public MainPage skipCookiePopUp() {
         clickOnClickableElement(skipCookisePopUp);
         logger.info("Происходит нажатие на кнопку 'skip' в поп-апе с куками");
@@ -38,12 +41,13 @@ public class MainPage extends BasePage {
     }
 
     //Клик по полю поиска
+    @Step("Нажатие на поле поиска")
     public MainPage clickOnSearchBar() {
         clickOnClickableElement(searchBar);
         logger.info("Происходит нажатие на поле поиска");
         return this;
     }
-
+    @Step("Нажатие на последний элемент в карусели")
     public MainPage clickOnItem() {
         clickOnClickableElement(lastItemInCarousel);
         logger.info("Происходит нажатие на последний элемент в карусели");

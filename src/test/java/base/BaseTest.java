@@ -8,8 +8,6 @@ import org.junit.jupiter.api.TestInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.cityChoosePage.CityChoosePage;
-import pages.filters.FiltersPage;
-import pages.filters.byPrice.FiltersByPricePage;
 import pages.item.ItemPage;
 import pages.main.MainPage;
 import pages.search.SearchPage;
@@ -19,8 +17,6 @@ public abstract class BaseTest {
     protected AndroidDriver androidDriver = AppiumActions.setUpAppium();
     protected MainPage mainPage = new MainPage(androidDriver);
     protected CityChoosePage cityChoosePage = new CityChoosePage(androidDriver);
-    protected FiltersPage filtersPage = new FiltersPage(androidDriver);
-    protected FiltersByPricePage filtersByPricePage = new FiltersByPricePage(androidDriver);
     protected SearchPage searchPage = new SearchPage(androidDriver);
     protected AppiumTouchActions appiumTouchActions = new AppiumTouchActions();
     protected ItemPage itemPage = new ItemPage(androidDriver);
